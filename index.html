@@ -1095,7 +1095,7 @@ body.presupport-design-module.presupport-numerical-mode #meta-inputs {display:no
  .print-presupport-page .presupport-reference-list{font-size:9pt!important;line-height:1.4!important}
  .print-presupport-page .presupport-reference-list li{margin-bottom:7px!important}
 }
-</style></head><body><header><h1>Presupport Design</h1><div class="toolbar"><button onclick="save()">Save As… (.json)</button><button onclick="document.getElementById('file').click()">Open saved project</button><button onclick="window.print()">Print / PDF</button><input id="file" type="file" accept=".json" hidden onchange="load(event)"></div></header><main><nav id="nav" aria-hidden="true" style="display:none"></nav><section class="content"><div class="panel"><h2 id="heading"></h2><p class="muted" id="description"></p></div><div class="panel" id="project-meta-panel"><div class="meta-layout"><div><h3>Project information</h3><div id="meta-project"></div><div class="presupport-inline-options" id="presupport-options-panel" hidden><h2>Presupport design basis</h2><div class="presupport-option-grid"><div><label for="presupport-method">Calculation Method</label><select id="presupport-method"><option value="Analytical Solution">Analytical Solution</option><option value="Numerical Solution">Numerical Solution</option></select></div><div><label for="presupport-standard">Design Standard</label><select id="presupport-standard"><option value="Limit State EN 1997">Limit State EN 1997</option><option value="Working Stress">Working Stress</option></select></div><div><label for="presupport-ground-model">Ground Model</label><select id="presupport-ground-model"><option value="Drained (Effective stress)">Drained (Effective stress)</option><option value="Undrained (Total stress)">Undrained (Total stress)</option></select></div><div><label for="presupport-type">Presupport Type</label><select id="presupport-type"><option value="Spiling Self Drilling Hollow Bar">Spiling Self Drilling Hollow Bar</option><option value="Spiling Solid Bar">Spiling Solid Bar</option><option value="Canopy tubes">Canopy tubes</option></select></div><div><label for="presupport-pressure-method">Ground Pressure Calculation Method</label><select id="presupport-pressure-method"><option value="John &amp; Mattle (2002)">John &amp; Mattle (2002)</option><option value="Terzaghi (1943)">Terzaghi (1943)</option></select></div><div id="presupport-approach-wrap"><label for="presupport-approach">EN 1997 Design Approach</label><select id="presupport-approach"><option value="EN 1997 DA1C1">EN 1997 DA1C1</option><option value="EN 1997 DA1C2">EN 1997 DA1C2</option></select></div></div></div><section id="presupport-load-factors" class="presupport-factor-card" hidden>
+</style><style id="presupport-v5-shape-button">#presupport-plastic-zone-card [data-pick="presupportPlasticShapeFactor"]{padding:8px 11px;border:1px solid #9eb9d6;border-radius:6px;background:#e8f2fc;color:#173d63;font-weight:700;cursor:pointer}</style></head><body><header><h1>Presupport Design</h1><div class="toolbar"><button onclick="save()">Save As… (.json)</button><button onclick="document.getElementById('file').click()">Open saved project</button><button onclick="window.print()">Print / PDF</button><input id="file" type="file" accept=".json" hidden onchange="load(event)"></div></header><main><nav id="nav" aria-hidden="true" style="display:none"></nav><section class="content"><div class="panel"><h2 id="heading"></h2><p class="muted" id="description"></p></div><div class="panel" id="project-meta-panel"><div class="meta-layout"><div><h3>Project information</h3><div id="meta-project"></div><div class="presupport-inline-options" id="presupport-options-panel" hidden><h2>Presupport design basis</h2><div class="presupport-option-grid"><div><label for="presupport-method">Calculation Method</label><select id="presupport-method"><option value="Analytical Solution">Analytical Solution</option><option value="Numerical Solution">Numerical Solution</option></select></div><div><label for="presupport-standard">Design Standard</label><select id="presupport-standard"><option value="Limit State EN 1997">Limit State EN 1997</option><option value="Working Stress">Working Stress</option></select></div><div><label for="presupport-ground-model">Ground Model</label><select id="presupport-ground-model"><option value="Drained (Effective stress)">Drained (Effective stress)</option><option value="Undrained (Total stress)">Undrained (Total stress)</option></select></div><div><label for="presupport-type">Presupport Type</label><select id="presupport-type"><option value="Spiling Self Drilling Hollow Bar">Spiling Self Drilling Hollow Bar</option><option value="Spiling Solid Bar">Spiling Solid Bar</option><option value="Canopy tubes">Canopy tubes</option></select></div><div><label for="presupport-pressure-method">Ground Pressure Calculation Method</label><select id="presupport-pressure-method"><option value="John &amp; Mattle (2002)">John &amp; Mattle (2002)</option><option value="Terzaghi (1943)">Terzaghi (1943)</option></select></div><div id="presupport-approach-wrap"><label for="presupport-approach">EN 1997 Design Approach</label><select id="presupport-approach"><option value="EN 1997 DA1C1">EN 1997 DA1C1</option><option value="EN 1997 DA1C2">EN 1997 DA1C2</option></select></div></div></div><section id="presupport-load-factors" class="presupport-factor-card" hidden>
 <h2>Load and Partial Factors</h2><div id="presupport-factor-fields"></div>
 </section><h3 class="ground-inputs-heading" id="presupport-ground-heading">Ground and tunnel inputs</h3><div id="meta-inputs"></div><section class="presupport-tunnel-card" id="presupport-tunnel-card"><h3>Tunnel inputs</h3><div id="presupport-tunnel-inputs"></div></section><span id="tunnel-xy-original-position" hidden></span><section class="presupport-tunnel-card" id="tunnel-xy-card"><h3>Tunnel Shape – X/Y Coordinates</h3><p class="xy-help">Paste two columns of X and Y coordinates (metres) from Excel, separated by tabs, commas or spaces. Points are joined in the supplied order and the contour closes automatically.</p><textarea id="tunnel-xy-input" rows="7" spellcheck="false" placeholder="X&#9;Y&#10;6.3246&#9;-4&#10;6.5941&#9;-3.3491"></textarea><div class="xy-actions"><button type="button" id="tunnel-xy-apply">Apply Coordinates</button><button type="button" id="tunnel-xy-reset">Restore Default Shape</button><span id="tunnel-xy-status" role="status"></span></div></section><section class="presupport-tunnel-card" id="presupport-capacity-results-card" style="display:none;margin-top:16px"><h3 id="presupport-capacity-results-title">Ground pressure and Spiling Bar Moment Capacity Assessment</h3><div id="presupport-capacity-results-content"></div></section><section class="presupport-tunnel-card" id="presupport-member-card"><h3>Presupport Inputs</h3><div id="presupport-member-inputs"></div></section><section class="presupport-tunnel-card" id="presupport-member-check-card" style="display:none;margin-top:16px;border:1px solid var(--border, #b9c9d7);border-radius:10px;padding:16px"><h3 id="presupport-member-check-title">Spiling bar Capacity Check</h3><div id="presupport-member-check-content"></div></section></div><div><section class="presupport-tunnel-card" id="presupport-references-card"><h3>References</h3><ol class="presupport-reference-list"><li>Anwar S., (2026) Mined Tunnel Pre-Support Design - A Case Study Review, World Tunnel Congress (WTC) 2026 Montréal Canada 15 to 21 May 2026</li><li>Bertuzzi, R. (2020). Tunnel Design Handbook, 4th Edition. Published in Australia in 2020 by Pells Sullivan Meynink</li><li>John, M., &amp; Mattle, B. (2002). Design of tube umbrella. Magazine of the Czech Tunnelling Committee and Slovak Tunnelling Association</li><li>ATS (2024). Tunnel Design Guidelines, 2nd Edition</li><li>Terzaghi, K. (1943). “Theoretical soil mechanics.” John Wiley and Sons, New York.</li></ol></section><h3>Ground profile and tunnel section</h3><div id="meta-sketch"></div><div id="shape-factor-reference"></div></div></div></div><div class="panel"><h2>Rock mass parameters</h2><div id="rock-results" class="result-grid"></div><p class="muted" id="rock-note"></p></div><div class="panel" id="grc-card"><h2>Analytical Model Data for Plotting Ground Reaction Curve (GRC)</h2><div id="grc-table"></div><p class="muted" id="grc-note"></p></div><div class="panel" id="rock-bolt-design-panel"><h3>Rock Bolt Design – Input Parameters</h3><div id="rock-bolt-design-fields"></div></div><div class="panel" id="rock-bolt-factors-panel"><h3>Load Factor and Capacity Reduction Factors</h3><div id="rock-bolt-factor-fields"></div></div><section id="rock-bolt-capacity-cards" class="rock-bolt-capacity-grid" aria-label="Rock bolt capacity checks">
 <article class="rock-bolt-capacity-card rb-tensile"><h3 id="rb-tensile-heading">1. Structural (Tensile) Capacity Check</h3><div id="rb-tensile-results"><p>Enter bolt data to calculate capacity.</p></div></article>
@@ -1868,6 +1868,26 @@ function presupportMomentOfInertiaHtml(demandMoment){
  <div class="presupport-result-grid presupport-moment-capacities" style="margin-top:8px"><div ><span>${grouted?'Design Composite Elastic Moment Capacity':'Design Elastic Moment Capacity'}, M<sub>el,Rd</sub></span><strong id="presupport-elastic-moment-capacity">${fmt(elasticMoment)} kN·m</strong></div><div ><span>${grouted?'Design Composite Plastic Moment Capacity':'Design Plastic Moment Capacity'}, M<sub>pl,Rd</sub></span><strong id="presupport-plastic-moment-capacity">${fmt(plasticMoment)} kN·m</strong></div><div ><span>Steel + internal grout elastic capacity (reference)</span><strong>${fmt(internalElastic)} kN·m</strong></div><div ><span>Steel + internal grout plastic capacity (reference)</span><strong>${fmt(internalPlastic)} kN·m</strong></div><div ><span>Steel-only elastic capacity (reference)</span><strong>${fmt(steelElastic)} kN·m</strong></div><div ><span>Steel-only plastic capacity (reference)</span><strong>${fmt(steelPlasticMoment)} kN·m</strong></div></div>
 `;
 }
+// Manufacturer/test reference values supplied by user (unfactored kN·m).
+// Each entry is [OD mm, wall mm, standard threaded, squeezed, nipple].
+const presupportConnectionTestTable=[
+ [76.1,6.3,2.9,null,null],
+ [88.9,5.0,null,5.9,null],[88.9,6.3,4.1,6.5,null],[88.9,8.0,5.4,null,null],
+ [114.3,5.0,null,10.5,16.0],[114.3,6.3,6.9,12.1,19.3],[114.3,8.0,9.3,13.2,19.3],
+ [139.7,5.0,null,17.5,24.4],[139.7,6.3,10.4,20.4,29.9],
+ [139.7,8.0,14.1,23.3,36.6],[139.7,10.0,18.4,null,38.8],
+ [168.3,10.0,26.0,null,66.0],[168.3,12.5,33.5,null,69.7],[168.3,16.0,43.2,null,null]
+];
+function presupportConnectionTestValue(){
+ const od=Number(state.presupportPipeOD),t=Number(state.presupportPipeT);
+ const row=presupportConnectionTestTable.find(r=>Math.abs(r[0]-od)<0.01&&Math.abs(r[1]-t)<0.01);
+ const column={'Standard Threaded Connection':2,'Squeezed Connection':3,'Nipple Coupling':4}[state.presupportConnectionType];
+ return row&&column!==undefined?row[column]:null;
+}
+function presupportAutofillConnection(){
+ const test=presupportConnectionTestValue();
+ state.presupportConnectionMoment=test===null?'':test;
+}
 function renderPresupportMemberCapacityCheck(demand){
  const card=document.getElementById('presupport-member-check-card');
  const host=document.getElementById('presupport-member-check-content');
@@ -1891,16 +1911,20 @@ function renderPresupportMemberCapacityCheck(demand){
  const override=state.presupportStandardPipeOverride===true;
  const manual=Number(state.presupportStandardPipeTestMoment);
  const standard=override&&state.presupportStandardPipeTestMoment!==undefined?manual:calculated;
- const connection=Number(state.presupportConnectionMoment);
+ if(canopy&&state.presupportConnectionMoment===undefined&&state.presupportConnectionType)presupportAutofillConnection();
+ const connection=state.presupportConnectionMoment===''||state.presupportConnectionMoment===undefined?NaN:Number(state.presupportConnectionMoment);
+ const connectionFactor=state.presupportPipeGrout===true?1.3:1.15;
+ const connectionDesign=connection/connectionFactor;
  const fmt=x=>Number.isFinite(x)?x.toLocaleString('en-US',{maximumFractionDigits:3}):'—';
  const result=(value)=>Number.isFinite(value)&&Number.isFinite(demand)?(value>=Math.abs(demand)?'PASS':'FAIL'):'—';
  const resultClass=value=>result(value)==='PASS'?'presupport-moment-pass':result(value)==='FAIL'?'presupport-moment-fail':'presupport-moment-unknown';
  const leftLabel=canopy?'Standard pipe':'Spiling bar';
  host.innerHTML=`<div class="presupport-result-grid"><div><label for="presupport-capacity-moment-type">Moment Capacity Calculation Type</label><select id="presupport-capacity-moment-type"><option ${!plastic?'selected':''}>Elastic</option><option ${plastic?'selected':''}>Plastic</option></select></div></div>
  <div class="presupport-result-grid" style="margin-top:10px"><div><span>${leftLabel} design ${plastic?'plastic':'elastic'} moment capacity</span><strong>${fmt(standard)} kN·m</strong>${canopy?`<label style="display:block;margin-top:9px"><input type="checkbox" id="presupport-pipe-override" ${override?'checked':''}> Override standard pipe capacity based on test results</label>${override?`<label for="presupport-pipe-test-moment">Test-based design moment capacity (kN·m)</label><input id="presupport-pipe-test-moment" type="number" step="any" min="0" value="${state.presupportStandardPipeTestMoment??''}">`:''}`:''}</div>
- ${canopy?`<div><label for="presupport-connection-type">Connection type</label><select id="presupport-connection-type"><option value="" ${!state.presupportConnectionType?'selected':''}>Select connection type</option>${['Standard Threaded Connection','Squeezed Connection','Nipple Coupling'].map(t=>`<option value="${t}" ${state.presupportConnectionType===t?'selected':''}>${t}</option>`).join('')}</select><label for="presupport-connection-moment">Connection design moment capacity (kN·m)</label><input id="presupport-connection-moment" type="number" step="any" min="0" style="font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit" value="${state.presupportConnectionMoment??''}"></div>`:''}</div>
+ ${canopy?`<div><label for="presupport-connection-type">Connection type</label><select id="presupport-connection-type"><option value="" ${!state.presupportConnectionType?'selected':''}>Select connection type</option>${['Standard Threaded Connection','Squeezed Connection','Nipple Coupling'].map(t=>`<option value="${t}" ${state.presupportConnectionType===t?'selected':''}>${t}</option>`).join('')}</select><label for="presupport-connection-moment">Connection moment capacity (kN·m)</label><input id="presupport-connection-moment" type="number" step="any" min="0" style="font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit" value="${state.presupportConnectionMoment??''}"></div>`:''}</div>
+ ${canopy?`<div class="presupport-result-grid" style="margin-top:10px"><div><span>Connection design capacity (unfactored / ${connectionFactor.toFixed(2)})</span><strong id="presupport-connection-design-value">${fmt(connectionDesign)} kN·m</strong></div></div>`:''}
  <div class="presupport-result-grid" style="margin-top:10px"><div><span>Induced factored moment, M*</span><strong>${fmt(demand)} kN·m</strong></div></div>
- <div class="presupport-result-grid" style="margin-top:10px"><div class="${resultClass(standard)}"><span>${leftLabel} moment capacity check</span><strong>${result(standard)}</strong></div>${canopy?`<div class="${state.presupportConnectionMoment===undefined||state.presupportConnectionMoment===''?'presupport-moment-unknown':resultClass(connection)}"><span>Connection moment capacity check</span><strong>${state.presupportConnectionMoment===undefined||state.presupportConnectionMoment===''?'—':result(connection)}</strong></div>`:''}</div>`;
+ <div class="presupport-result-grid" style="margin-top:10px"><div class="${resultClass(standard)}"><span>${leftLabel} moment capacity check</span><strong>${result(standard)}</strong></div>${canopy?`<div class="${state.presupportConnectionMoment===undefined||state.presupportConnectionMoment===''?'presupport-moment-unknown':resultClass(connectionDesign)}"><span>Connection moment capacity check</span><strong>${state.presupportConnectionMoment===undefined||state.presupportConnectionMoment===''?'—':result(connectionDesign)}</strong></div>`:''}</div>`;
  const type=document.getElementById('presupport-capacity-moment-type');
  type.onchange=()=>{state.presupportCapacityMomentType=type.value;renderPresupportMemberCapacityCheck(demand);};
  const box=document.getElementById('presupport-pipe-override');
@@ -1915,7 +1939,7 @@ function renderPresupportMemberCapacityCheck(demand){
   const grids=host.querySelectorAll('.presupport-result-grid');
   const capacityValue=grids[1]?.querySelector('div:first-child > strong');
   if(capacityValue)capacityValue.textContent=`${fmt(currentStandard)} kN·m`;
-  const checks=grids[3]?.querySelectorAll(':scope > div');
+  const checks=grids[grids.length-1]?.querySelectorAll(':scope > div');
   const updateCheck=(cell,value)=>{
    if(!cell)return;
    cell.classList.remove('presupport-moment-pass','presupport-moment-fail','presupport-moment-unknown');
@@ -1924,7 +1948,9 @@ function renderPresupportMemberCapacityCheck(demand){
    if(label)label.textContent=result(value);
   };
   updateCheck(checks?.[0],currentStandard);
-  updateCheck(checks?.[1],currentConnection);
+  updateCheck(checks?.[1],currentConnection/connectionFactor);
+  const designDisplay=document.getElementById('presupport-connection-design-value');
+  if(designDisplay)designDisplay.textContent=`${fmt(currentConnection/connectionFactor)} kN·m`;
  };
  const bindLive=(id,key)=>{
   const el=document.getElementById(id);
@@ -1945,7 +1971,7 @@ function renderPresupportMemberCapacityCheck(demand){
  };
  bindLive('presupport-pipe-test-moment','presupportStandardPipeTestMoment');
  const connectionType=document.getElementById('presupport-connection-type');
- if(connectionType)connectionType.onchange=()=>{state.presupportConnectionType=connectionType.value;};
+ if(connectionType)connectionType.onchange=()=>{state.presupportConnectionType=connectionType.value;presupportAutofillConnection();renderPresupportMemberCapacityCheck(demand);};
  bindLive('presupport-connection-moment','presupportConnectionMoment');
 }
 function renderPresupportCapacityResults(){
@@ -2067,7 +2093,7 @@ function renderPresupportPlasticZone(resultsOnly=false){
  const thickness=plasticActive?Math.max(0,rp-r0):0;
  const f=v=>Number.isFinite(v)?v.toFixed(3):'—';
  const renderedHtml=`<div class="meta-fields">
- <div><label>Tunnel Shape Factor, A</label><input type="number" step="any" data-plastic-key="presupportPlasticShapeFactor" value="${shape}"></div>
+ <div><label>Tunnel Shape Factor, A (Hoek &amp; Brown, 1980)</label><div style="display:flex;gap:6px;align-items:center"><input type="number" step="any" data-plastic-key="presupportPlasticShapeFactor" value="${shape}" style="min-width:0;flex:1"><button type="button" data-pick="presupportPlasticShapeFactor" style="flex:0 0 auto;white-space:nowrap">Select shape</button></div></div>
  <div><label>Equivalent Tunnel Radius, r₀ (m)</label><input type="number" step="any" data-plastic-key="presupportPlasticRadius" value="${r0}"></div>
  <div><label>Ground Relaxation Factor, β (0–1)</label><input type="number" step="0.01" min="0" max="1" data-plastic-key="presupportPlasticBeta" value="${beta}"></div>
  </div>
@@ -2345,6 +2371,8 @@ function renderPresupportMemberInputs(){
  }
  const sync=()=>{
   if(canopy){
+   if(state.presupportConnectionType&&(!Number.isFinite(Number(state.presupportLastPipeOD))||Number(state.presupportLastPipeOD)!==Number(state.presupportPipeOD)||Number(state.presupportLastPipeT)!==Number(state.presupportPipeT))){presupportAutofillConnection();}
+   state.presupportLastPipeOD=state.presupportPipeOD;state.presupportLastPipeT=state.presupportPipeT;
    state.presupportPipeID=Math.max(0,(Number(state.presupportPipeOD)||0)-2*(Number(state.presupportPipeT)||0));
    state.presupportPipeLe=(Number(state.presupportPipeLp)||0)-(Number(state.presupportPipeLo)||0);
    const beta=Number(state.presupportPipeBeta)*Math.PI/180;
@@ -4029,7 +4057,7 @@ window.addEventListener('beforeprint',makePrintReport);
  }
  function open(which){
   overlay.classList.add('open');overlay.dataset.which=which;
-  if(which==='shapeFactorA'){
+  if(which==='shapeFactorA'||which==='presupportPlasticShapeFactor'){
    title.textContent='Select tunnel shape factor A (Hoek & Brown, 1980)';
    opts.className='stability-shapes';
    opts.innerHTML=shapes.map(([name,a,b,k])=>`<button class="stability-choice stability-shape" data-value="${a}">${glyph(k)}<span>${name}</span><strong>A = ${a.toFixed(1)}</strong><small>B = ${b.toFixed(1)}</small></button>`).join('');
@@ -4052,7 +4080,7 @@ window.addEventListener('beforeprint',makePrintReport);
   const choice=e.target.closest('#stability-pick-options [data-value]');
   if(choice){
    const which=overlay.dataset.which;
-   const input=document.querySelector(`[data-stability="${which}"]`);
+   const input=which==='presupportPlasticShapeFactor'?document.querySelector('[data-plastic-key="presupportPlasticShapeFactor"]'):document.querySelector(`[data-stability="${which}"]`);
    if(input){input.value=choice.dataset.value;input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));}
    close();return;
   }
